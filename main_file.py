@@ -35,7 +35,9 @@ expr = ''
 entry_box = tk.Entry(text_frame,
                      textvariable=text,
                      justify='right',
-                     font=('Titillium Web Regular', 26))
+                     font=('Titillium Web Regular', 26),
+                     bg='#FFEEDB',
+                     fg='#BA3B46')
 
 
 #makes the equation
