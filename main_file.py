@@ -1,4 +1,3 @@
-from platform import release
 import tkinter as tk, pyglet
 
 #starting properties
@@ -17,7 +16,7 @@ frame3 = tk.Frame(root)
 frame4 = tk.Frame(root)
 
 
-#make extra buttons (width = width of button, st = text of button, frame = Frame to be added to)
+#make extra buttons (frame = Frame to be added to, st = string of button)
 def make_button(frame, st):
     return tk.Button(frame,
                      text=str(st),
