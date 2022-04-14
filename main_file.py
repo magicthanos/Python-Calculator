@@ -1,34 +1,42 @@
 import tkinter as tk, pyglet
-from tkinter import ttk
+
+#font file
+pyglet.font.add_file(r'.\TTLM.ttf')
+
+
+#make extra buttons (width = width of button, st = text of button, frame = Frame to be added to)
+def make_button(frame, st, width):
+    return tk.Button(frame,
+                     text=str(st),
+                     width=width,
+                     fg='#FFEEDB',
+                     bg='#BA3B46',
+                     font=('Titillium Web Regular', 25))
+
 
 root = tk.Tk()
 root.title('Python Calculator')
-root.geometry('300x100')
-frame = ttk.Frame(root, padding=10)
+frame1 = tk.Frame(root)
+frame2 = tk.Frame(root)
 
 #makes the buttons from 1-9 (reversed)
+buttons = [make_button(frame1, i, 4) for i in range(9, -1, -1)]
 
-pyglet.font.add_file(r'.\TTLM.ttf')
+#extra buttons
+button_0 = make_button(frame2, 0, 8)
+button_dot = make_button(frame2, '.', 4)
 
-style = ttk.Style()
-style.configure("Nums.TButton",
-                background='white',
-                foreground='white',
-                font=('Titillium Web Regular', 10))
-label = ttk.Label(font=('Titillium Web Regular', 10),
-                  text='This is a test string 123').grid(row=10, column=10)
-buttons = [
-    ttk.Button(frame, text=str(i), width=4, style="Nums.TButton")
-    for i in range(9, -1, -1)
-]
-
-#places the numbers in the correct order
+#places the buttons in the correct place
 count = 0
 for i in range(3):
     for j in range(2, -1, -1):
-        buttons[count].grid(row=i, column=j)
+        buttons[count].grid(row=i, column=j, ipadx=10, ipady=10)
         count += 1
-frame.grid()
+button_0.grid(row=0, column=0, ipadx=20, ipady=10)
+button_dot.grid(row=0, column=1, ipadx=15, ipady=10)
+
+frame1.grid()
+frame2.grid()
 
 if __name__ == "__main__":
     root.mainloop()

@@ -1,1 +1,1 @@
-buttons = [ttk.Bu
+pyglet.font.add_file(r'.\TTLM.ttf')
